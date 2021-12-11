@@ -17,6 +17,7 @@ class CreateCategoriesTable extends Migration
             $table->id();
 $table->string('name')->nullable();
 $table->text('description')->nullable();
+$table->text('position')->nullable();  // by this code we can create the number of position when User move data
             $table->timestamps();
         });
     }

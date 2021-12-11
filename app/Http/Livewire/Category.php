@@ -21,12 +21,11 @@ class Category extends Component
         'description'=>'required'
     ];
 
-    public function render()
-    {  // get all datas in table and show in category page
-        $this->categories = Categories::select('id','name','description')->get();
-        
+    public function render(){
+        // we get all Data from Table according Position
+        $this->categories = Categories::orderBy('position')->get();
         return view('livewire.category');
-    }
+       }
 // write this for datas in Models like this
     public function resetFields(){
         $this->name = '';
@@ -126,4 +125,11 @@ class Category extends Component
             ]);
         }
     }
+// the name of this function is same in Category.blade.php
+    public function updateTaskOrder($categories){
+        //if we move each row new position change in Table 
+        foreach($categories as $item){
+          categories::whereId($item['value'])->update(['position' => $item['order']]);
+        }
+      }
 }

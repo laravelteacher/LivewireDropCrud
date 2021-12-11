@@ -32,7 +32,7 @@
     
   @livewireScripts
   <script src="//cdn.jsdelivr.net/npm/sweetalert2@10"></script>
-
+  <script type="text/javascript" src="{{ mix('js/sortTable.js') }}"></script>
     <script>
         const Toast = Swal.mixin({
             toast: true,
